@@ -9,13 +9,17 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './container/search/search.component';
 import { NewestComponent } from './container/newest/newest.component';
 import { RandomComponent } from './container/random/random.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     NewestComponent,
-    RandomComponent
+    RandomComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
