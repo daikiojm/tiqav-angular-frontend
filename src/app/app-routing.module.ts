@@ -13,11 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'newest',
-    component: SearchComponent
+    component: NewestComponent
   },
   {
     path: 'random',
-    component: SearchComponent
+    component: RandomComponent
   }
 ];
 
