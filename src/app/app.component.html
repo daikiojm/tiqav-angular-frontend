@@ -1,5 +1,14 @@
 <app-header></app-header>
 <div class="main-area-container">
-  <router-outlet></router-outlet>
+<nav md-tab-nav-bar>
+  <a md-tab-link
+      *ngFor="let routeLink of routeLinks; let i = index"
+        [routerLink]="routeLink.link"
+        [active]="activeLinkIndex === i"
+        (click)="activeLinkIndex = i">
+        {{routeLink.label}}
+    </a>
+</nav>
+<router-outlet></router-outlet>
 </div>
 <app-footer></app-footer>
