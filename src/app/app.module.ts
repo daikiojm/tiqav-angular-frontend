@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { JsonpModule } from '@angular/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ import { TiqavApiService } from './services/tiqav-api.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    JsonpModule
+    JsonpModule,
+    FlexLayoutModule
   ],
   providers: [
     TiqavApiService
