@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response, URLSearchParams } from '@angular/http';
+import { Headers, Jsonp, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -11,33 +11,61 @@ import { Result } from './../model/result';
 export class TiqavApiService {
 
   constructor(
-    private http: Http,
+    private jsonp: Jsonp,
   ) { }
 
   private apiEndpoint = 'http://api.tiqav.com';
 
-  getSearch(): Observable<Result[]> {
-    return this.http.get(`${this.apiEndpoint}/search/search.json`)
+  getSearch(query: string): Observable<Result[]> {
+    const params = this.searchParams();
+    params.set('q', query);
+    return this.jsonp.get(`${this.apiEndpoint}/search.json`, { search: params })
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getNewest(): Observable<Result[]> {
-    return this.http.get(`${this.apiEndpoint}/newest/search.json`)
+    const params = this.searchParams();
+    return this.jsonp.get(`${this.apiEndpoint}/search/newest.json`, { search: params })
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getRandom(): Observable<Result[]> {
-    return this.http.get(`${this.apiEndpoint}/newest/random.json`)
+    const params = this.searchParams();
+    return this.jsonp.get(`${this.apiEndpoint}/search/random.json`, { search: params })
       .map(this.extractData)
       .catch(this.handleError);
   }
 
-  getImage(): Observable<Image[]> {
-    return this.http.get(`${this.apiEndpoint}/images.json`)
+  getImage(id: string): Observable<Image[]> {
+    const params = this.searchParams();
+    return this.jsonp.get(`${this.apiEndpoint}/images/${id}.json`, { search: params })
     .map(this.extractData)
     .catch(this.handleError);
+  }
+
+  postImage(url: string, serifu: string, tags: string): Observable<string> {
+    const params = this.searchParams();
+    params.set('url', url);
+    params.set('serifu', serifu);
+    params.set('tags', tags);
+    return this.jsonp.post(`${this.apiEndpoint}/images.json`, { params: params })
+    .map(this.extractData)
+    .catch(this.handleError);
+  }
+
+  getTag(id: string): Observable<string[]> {
+    const params = this.searchParams();
+    return this.jsonp.get(`${this.apiEndpoint}/images/${id}/tags.json`, { search: params })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  private searchParams(): URLSearchParams {
+    const _params = new URLSearchParams();
+    _params.set('callback', 'JSONP_CALLBACK');
+    return _params;
   }
 
   private extractData(res: Response) {

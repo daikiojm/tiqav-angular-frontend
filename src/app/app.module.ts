@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import { HttpModule } from '@angular/http';
-import { TiqavApiService } from './services/tiqav-api.service';
+import { JsonpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +12,7 @@ import { NewestComponent } from './container/newest/newest.component';
 import { RandomComponent } from './container/random/random.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { TiqavApiService } from './services/tiqav-api.service';
 
 @NgModule({
   declarations: [
@@ -28,10 +28,11 @@ import { FooterComponent } from './shared/footer/footer.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpModule,
+    JsonpModule
+  ],
+  providers: [
     TiqavApiService
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
