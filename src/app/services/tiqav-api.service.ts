@@ -6,7 +6,6 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/catch';
 
 import { Image } from './../model/image';
-import { Result } from './../model/result';
 
 @Injectable()
 export class TiqavApiService {
@@ -17,7 +16,7 @@ export class TiqavApiService {
 
   private apiEndpoint = 'http://api.tiqav.com';
 
-  getSearch(query: string): Observable<Result[]> {
+  getSearch(query: string): Observable<Image[]> {
     const params = this.searchParams();
     params.set('q', query);
     return this.jsonp.get(`${this.apiEndpoint}/search.json`, { search: params })
@@ -25,14 +24,14 @@ export class TiqavApiService {
       .catch(this.handleError);
   }
 
-  getNewest(): Observable<Result[]> {
+  getNewest(): Observable<Image[]> {
     const params = this.searchParams();
     return this.jsonp.get(`${this.apiEndpoint}/search/newest.json`, { search: params })
       .map(this.extractData)
       .catch(this.handleError);
   }
 
-  getRandom(): Observable<Result[]> {
+  getRandom(): Observable<Image[]> {
     const params = this.searchParams();
     return this.jsonp.get(`${this.apiEndpoint}/search/random.json`, { search: params })
       .map(this.extractData)
