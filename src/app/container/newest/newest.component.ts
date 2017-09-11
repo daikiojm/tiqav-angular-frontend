@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/mergeMap';
@@ -22,30 +23,26 @@ export class NewestComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.tiqavApiService.getSearch('ちくわ')
-    // .subscribe(
-    //   data => {
-    //     console.log(data);
-    //     this.results = data;
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // );
-
-    this.http.get('http://api.tiqav.com/search/newest.json?callback=JSONP_CALLBACK').map((res: Response) => {
-      this.results = res.json();
-      return this.results;
-    })
-    .flatMap((result) => this.http.get(`http://api.tiqav.com/images/${result[0].id}.json?callback=JSONP_CALLBACK`))
-    .map((res: Response) => res.json())
+    this.tiqavApiService.getNewest()
+    .switchMap(
+      (results) => {
+        console.log(results);
+        const images: Observable<Image>[] = [];
+        for (const result of results) {
+          images.push(this.tiqavApiService.getImage(result.id));
+        }
+        return Observable.forkJoin(images);
+      }
+    )
     .subscribe(
-      res => {
-        this.images.push(res);
+      data => {
+        this.images = data;
         console.log(this.images);
+      },
+      err => {
+        console.log(err);
       }
     );
-
   }
 
 }
