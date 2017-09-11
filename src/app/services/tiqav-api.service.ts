@@ -38,7 +38,7 @@ export class TiqavApiService {
       .catch(this.handleError);
   }
 
-  getImage(id: string): Observable<Image[]> {
+  getImage(id: string): Observable<Image> {
     const params = this.searchParams();
     return this.jsonp.get(`${this.apiEndpoint}/images/${id}.json`, { search: params })
     .map(this.extractData)
