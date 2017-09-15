@@ -1,1 +1,5 @@
 <p>Newest</p>
+
+<div *ngFor="let i of results">
+    <img [src]="getImage(i.id, i.ext)" alt="">
+</div>

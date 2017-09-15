@@ -13,7 +13,7 @@ import { Image } from './../../model/image';
   styleUrls: ['./newest.component.css']
 })
 export class NewestComponent implements OnInit {
-  private results: Image[] = [];
+  public results: Image[] = [];
 
   constructor(
     private tiqavApiService: TiqavApiService,
@@ -28,4 +28,7 @@ export class NewestComponent implements OnInit {
     );
   }
 
+  getImage(id: string, ext: string): string {
+    return this.tiqavApiService.getImageUrl(id, ext);
+  }
 }
