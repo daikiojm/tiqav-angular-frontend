@@ -14,3 +14,8 @@ http://tiqav.com/
 tiqavのデベロッパーページ  
 http://dev.tiqav.com/
 >tiqav API Documentation
+
+## 参考
+
+画像一覧のスタイリングをGooglePhoto風にする際に、大変参考になった  
+https://github.com/xieranmaya/blog/issues/6

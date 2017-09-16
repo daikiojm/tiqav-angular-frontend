@@ -17,6 +17,10 @@ export class RandomComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.tiqavApiService.getRandom()
+    .subscribe(
+      data => this.results = data,
+      err => console.log(err)
+    );
   }
-
 }
