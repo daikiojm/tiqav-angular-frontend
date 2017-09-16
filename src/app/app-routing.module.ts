@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'search', pathMatch: 'full' },
   {
     path: 'search',
-    component: SearchComponent
+    component: SearchComponent,
+    pathMatch: 'full'
   },
   {
     path: 'newest',

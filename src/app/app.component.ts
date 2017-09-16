@@ -24,9 +24,11 @@ export class AppComponent {
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.url.slice(1);
-        console.log(this.currentRoute);
         this.routeLinks.forEach((elm, index) => {
-          if (elm.link === this.currentRoute) {
+          const _pos = this.currentRoute.indexOf('?');
+          const pos = _pos !== -1 ? _pos : this.currentRoute.length;
+          const _currentRoute = this.currentRoute.substring(0, pos);
+          if (elm.link === _currentRoute) {
             this.activeLinkIndex = index;
           }
         });

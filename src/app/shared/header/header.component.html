@@ -1,16 +1,4 @@
 <md-toolbar color="primary">
   <h2>AngularTiqav</h2>
-  <!-- <span>
-    <button md-button [routerLink]="['/search']">Search</button>
-    <button md-button [routerLink]="['/newest']">Newest</button>
-    <button md-button [routerLink]="['/random']">Random</button>
-  </span> -->
-  <span class="search-form">
-    <form>
-      <md-input-container class="search-form-container">
-        <md-icon mdPrefix>search</md-icon>
-        <input mdInput type="search" placeholder="Search">
-      </md-input-container>
-    </form>
-  </span>
+    <app-search-form class="search-form"></app-search-form>
 </md-toolbar>

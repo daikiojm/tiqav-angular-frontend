@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { JsonpModule } from '@angular/http';
@@ -16,6 +17,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { TiqavApiService } from './services/tiqav-api.service';
 import { ImagesComponent } from './shared/images/images.component';
+import { SearchFormComponent } from './shared/search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,13 @@ import { ImagesComponent } from './shared/images/images.component';
     RandomComponent,
     HeaderComponent,
     FooterComponent,
-    ImagesComponent
+    ImagesComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SearchFormComponent } from './../search-form/search-form.component';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
