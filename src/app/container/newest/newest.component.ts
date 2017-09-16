@@ -1,11 +1,8 @@
-import { Observable } from 'rxjs/Rx';
-import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
-import 'rxjs/add/operator/mergeMap';
-import { Headers, Jsonp, Response, URLSearchParams } from '@angular/http';
 
-import { TiqavApiService } from './../../services/tiqav-api.service';
 import { Image } from './../../model/image';
+import { TiqavApiService } from './../../services/tiqav-api.service';
+import { ImagesComponent } from './../../shared/images/images.component';
 
 @Component({
   selector: 'app-newest',
@@ -16,8 +13,7 @@ export class NewestComponent implements OnInit {
   results: Image[] = [];
 
   constructor(
-    private tiqavApiService: TiqavApiService,
-    private http: Jsonp
+    private tiqavApiService: TiqavApiService
   ) { }
 
   ngOnInit() {
@@ -26,9 +22,5 @@ export class NewestComponent implements OnInit {
       data => this.results = data,
       err => console.log(err)
     );
-  }
-
-  getImage(id: string, ext: string): string {
-    return this.tiqavApiService.getImageUrl(id, ext);
   }
 }

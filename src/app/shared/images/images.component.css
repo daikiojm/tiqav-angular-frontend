@@ -1,0 +1,25 @@
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section::after {
+  content: '';
+  flex-grow: 999999999;
+}
+
+.image-wapper {
+  margin: 4px;
+  position: relative;
+}
+
+i {
+  display: block;
+}
+
+img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  vertical-align: bottom;
+}

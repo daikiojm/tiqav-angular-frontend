@@ -14,6 +14,7 @@ import { RandomComponent } from './container/random/random.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { TiqavApiService } from './services/tiqav-api.service';
+import { ImagesComponent } from './shared/images/images.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TiqavApiService } from './services/tiqav-api.service';
     NewestComponent,
     RandomComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ImagesComponent
   ],
   imports: [
     BrowserModule,
