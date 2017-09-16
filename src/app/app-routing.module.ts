@@ -19,7 +19,8 @@ const routes: Routes = [
   {
     path: 'random',
     component: RandomComponent
-  }
+  },
+  { path: '**', redirectTo: 'search', pathMatch: 'full' }
 ];
 
 @NgModule({
