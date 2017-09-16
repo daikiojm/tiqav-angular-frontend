@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { JsonpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +16,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { TiqavApiService } from './services/tiqav-api.service';
 import { ImagesComponent } from './shared/images/images.component';
-import { DefaultImageDirective } from './directives/default-image.directive';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,7 @@ import { DefaultImageDirective } from './directives/default-image.directive';
     RandomComponent,
     HeaderComponent,
     FooterComponent,
-    ImagesComponent,
-    DefaultImageDirective
+    ImagesComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +33,8 @@ import { DefaultImageDirective } from './directives/default-image.directive';
     BrowserAnimationsModule,
     MaterialModule,
     JsonpModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    LazyLoadImageModule
   ],
   providers: [
     TiqavApiService
