@@ -17,6 +17,10 @@ export class SearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.tiqavApiService.getSearch('ちくわぶ')
+    .subscribe(
+      data => this.results = data,
+      err => console.log(err)
+    );
   }
-
 }
