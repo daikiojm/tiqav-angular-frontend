@@ -22,4 +22,10 @@ img {
   top: 0;
   width: 100%;
   vertical-align: bottom;
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+img.ng-lazyloaded {
+  opacity: 1;
 }
