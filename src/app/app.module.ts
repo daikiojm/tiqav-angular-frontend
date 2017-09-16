@@ -15,6 +15,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { TiqavApiService } from './services/tiqav-api.service';
 import { ImagesComponent } from './shared/images/images.component';
+import { DefaultImageDirective } from './directives/default-image.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ImagesComponent } from './shared/images/images.component';
     RandomComponent,
     HeaderComponent,
     FooterComponent,
-    ImagesComponent
+    ImagesComponent,
+    DefaultImageDirective
   ],
   imports: [
     BrowserModule,

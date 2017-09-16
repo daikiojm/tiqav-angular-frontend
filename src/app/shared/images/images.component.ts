@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Directive } from '@angular/core';
 
 import { Image } from './../../model/image';
 import { TiqavApiService } from './../../services/tiqav-api.service';
@@ -18,7 +18,12 @@ export class ImagesComponent implements OnInit {
   ngOnInit() {
   }
 
+  getThumbnail(id: string, ext: string): string {
+    return this.tiqavApiService.getThumbnailUrl(id, ext);
+  }
+
   getImage(id: string, ext: string): string {
     return this.tiqavApiService.getImageUrl(id, ext);
   }
+
 }
