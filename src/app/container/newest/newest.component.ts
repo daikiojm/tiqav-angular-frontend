@@ -7,7 +7,10 @@ import { ImagesComponent } from './../../shared/images/images.component';
 @Component({
   selector: 'app-newest',
   templateUrl: './newest.component.html',
-  styleUrls: ['./newest.component.css']
+  styleUrls: [
+    './../container.css',
+    './newest.component.css'
+  ]
 })
 export class NewestComponent implements OnInit {
   results: Image[] = [];

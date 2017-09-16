@@ -7,7 +7,10 @@ import { ImagesComponent } from './../../shared/images/images.component';
 @Component({
   selector: 'app-random',
   templateUrl: './random.component.html',
-  styleUrls: ['./random.component.css']
+  styleUrls: [
+    './../container.css',
+    './random.component.css'
+  ]
 })
 export class RandomComponent implements OnInit {
   results: Image[] = [];
