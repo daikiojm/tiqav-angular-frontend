@@ -8,8 +8,8 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'app';
-  private routeLinks: any[];
-  private activeLinkIndex = 0;
+  routeLinks: any[];
+  activeLinkIndex = 0;
   private currentRoute = '';
 
   constructor(

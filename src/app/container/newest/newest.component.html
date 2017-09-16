@@ -1,5 +1,8 @@
 <p>Newest</p>
 
-<div *ngFor="let i of results">
-    <img [src]="getImage(i.id, i.ext)" alt="">
-</div>
+<section>
+  <div class="image-wapper" *ngFor="let i of results" [style.width.px]="i.width*200/i.height" [style.flex-grow]="i.width*200/i.height">
+    <i [style.padding-bottom.%]="i.height/i.width*100"></i>
+    <img class="image" [src]="getImage(i.id, i.ext)" alt="">
+  </div>
+</section>

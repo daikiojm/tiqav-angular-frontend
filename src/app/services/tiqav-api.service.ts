@@ -14,8 +14,6 @@ export class TiqavApiService {
     private jsonp: Jsonp,
   ) { }
 
-  private apiEndpoint = 'http://api.tiqav.com';
-
   getSearch(query: string): Observable<Image[]> {
     const params = this.searchParams();
     params.set('q', query);
