@@ -19,6 +19,8 @@ import { TiqavApiService } from './services/tiqav-api.service';
 import { ImagesComponent } from './shared/images/images.component';
 import { SearchFormComponent } from './shared/search-form/search-form.component';
 import { ImagesDialogComponent } from './shared/images-dialog/images-dialog.component';
+import { ImagesInfoComponent } from './shared/images-info/images-info.component';
+import { ImagesRelatedComponent } from './shared/images-related/images-related.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ImagesDialogComponent } from './shared/images-dialog/images-dialog.comp
     FooterComponent,
     ImagesComponent,
     SearchFormComponent,
-    ImagesDialogComponent
+    ImagesDialogComponent,
+    ImagesInfoComponent,
+    ImagesRelatedComponent
   ],
   imports: [
     BrowserModule,

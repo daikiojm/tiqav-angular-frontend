@@ -1,0 +1,12 @@
+.container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.md-card {
+  height: 100%;
+}
+
+input {
+  user-select: text;
+}

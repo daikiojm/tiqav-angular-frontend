@@ -1,0 +1,9 @@
+<div class="images-dialog-container">
+  <div class="main-image-wapper">
+    <div class="main-image" [ngStyle]="{'background-image': 'url(' + getImage(image.id, image.ext) + ')'}"></div>
+  </div>
+  <!-- ダウンロードリンク -->
+  <!-- <a [href]="getImage(image.id, image.ext)" download="">ここ</a> -->
+  <app-images-info [image]="image"></app-images-info>
+  <app-images-related [image]="image"></app-images-related>
+</div>
