@@ -24,7 +24,6 @@ export class ImagesDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.image);
   }
 
   getCurrentImageData(id: string): Image {

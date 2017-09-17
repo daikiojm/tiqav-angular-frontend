@@ -7,6 +7,7 @@ import 'hammerjs';
 import { JsonpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { ClipboardModule } from 'ngx-clipboard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,7 +46,8 @@ import { ImagesRelatedComponent } from './shared/images-related/images-related.c
     MaterialModule,
     JsonpModule,
     FlexLayoutModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    ClipboardModule
   ],
   providers: [
     TiqavApiService

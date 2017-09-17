@@ -1,9 +1,22 @@
 <div class="container">
   <md-card>
     <form class="image-info-form">
-      <md-form-field class="image-info-form-full-width">
-        <input mdInput placeholder="画像URL" [value]="image.id" readonly="true">
-      </md-form-field>
+      <p>
+        <md-form-field class="image-info-form-full-width">
+          <input mdInput #inputTarget placeholder="画像URL" [value]="getNakedImageUrl()" readonly="true">
+        </md-form-field>
+      </p>
+      <p>
+        <md-form-field class="image-info-form-full-width">
+          <input mdInput #inputTarget placeholder="リンク" [value]="geImageLink()" readonly="true">
+        </md-form-field>
+      </p>
+      <p>
+        <md-form-field class="image-info-form-full-width">
+          <input mdInput #inputTarget placeholder="Markdown" [value]="getMarkdown()" readonly="true">
+        </md-form-field>
+      </p>
     </form>
+    <button [ngxClipboard]="inputTarget"></button>
   </md-card>
 </div>
