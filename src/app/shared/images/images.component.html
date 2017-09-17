@@ -2,5 +2,6 @@
   <div class="image-wapper" *ngFor="let i of images" [style.width.px]="i.width*200/i.height" [style.flex-grow]="i.width*200/i.height">
     <i [style.padding-bottom.%]="i.height/i.width*100"></i>
     <img class="image" [lazyLoad]="getThumbnail(i.id, i.ext)" [errorImage]="getImage(i.id, i.ext)" alt="">
+    <div class="image-footer"></div>
   </div>
 </section>
