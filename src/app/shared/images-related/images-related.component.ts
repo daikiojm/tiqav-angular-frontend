@@ -24,7 +24,7 @@ export class ImagesRelatedComponent implements OnInit {
       data => this.results = data,
       err => console.log(err),
       () => {
-        this.relatedImages = this.getRandomN(5);
+        this.relatedImages = this.getRandomN(3);
       }
     );
   }
@@ -36,6 +36,10 @@ export class ImagesRelatedComponent implements OnInit {
       result.push(this.results[Math.floor(Math.random() * len)]);
     }
     return result;
+  }
+
+  getImage(id: string, ext: string): string {
+    return this.tiqavApiService.getImageUrl(id, ext);
   }
 
   getThumbnail(id: string, ext: string): string {

@@ -2,21 +2,26 @@
   <md-card>
     <form class="image-info-form">
       <p>
-        <md-form-field class="image-info-form-full-width">
-          <input mdInput #inputTarget placeholder="画像URL" [value]="getNakedImageUrl()" readonly="true">
+        <a md-raised-button color="primary"  [href]="getNakedImageUrl()" download="">ダウンロード</a>
+      </p>
+      <p>
+        <md-form-field class="image-info-form-image-url">
+          <input mdInput #imageUrl placeholder="画像URL" [value]="getNakedImageUrl()" readonly="true">
         </md-form-field>
+        <button md-raised-button color="primary" [ngxClipboard]="imageUrl">コピー</button>
       </p>
       <p>
         <md-form-field class="image-info-form-full-width">
-          <input mdInput #inputTarget placeholder="リンク" [value]="geImageLink()" readonly="true">
+          <input mdInput #imageLink placeholder="リンク" [value]="geImageLink()" readonly="true">
         </md-form-field>
+        <button md-raised-button color="primary" [ngxClipboard]="imageLink">コピー</button>
       </p>
       <p>
         <md-form-field class="image-info-form-full-width">
-          <input mdInput #inputTarget placeholder="Markdown" [value]="getMarkdown()" readonly="true">
+          <input mdInput #markDown placeholder="Markdown" [value]="getMarkdown()" readonly="true">
         </md-form-field>
+        <button md-raised-button color="primary" [ngxClipboard]="markDown">コピー</button>
       </p>
     </form>
-    <button [ngxClipboard]="inputTarget"></button>
   </md-card>
 </div>

@@ -3,6 +3,12 @@
   padding-bottom: 10px;
 }
 
-.md-card {
+md-card {
   height: 100%;
+  padding: 10px;
+}
+
+.related-image-wapper {
+  width: 80%;
+  margin: auto;
 }
