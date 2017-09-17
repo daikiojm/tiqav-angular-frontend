@@ -38,7 +38,7 @@ export class ImagesRelatedComponent implements OnInit {
     const result = [];
     const usedIndex = [];
     const len = this.results.length;
-    for (let i = 0; i < n; i++) {
+     while (result.length < n) {
       const currentIndex = Math.floor(Math.random() * len);
       if (usedIndex.indexOf(currentIndex) === -1) {
         result.push(this.results[currentIndex]);
