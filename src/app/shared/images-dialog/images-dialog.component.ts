@@ -34,8 +34,21 @@ export class ImagesDialogComponent implements OnInit {
     return result;
   }
 
+  refreshCurrentImageDataFromAll(id: string) {
+    this.tiqavApiService.getImage(id)
+    .subscribe(
+      data => this.image = data,
+      err => console.log(err)
+    );
+  }
+
   getImage(id: string, ext: string): string {
     return this.tiqavApiService.getImageUrl(id, ext);
+  }
+
+  onChangeRelatedImage(id: string) {
+    console.log(id);
+    this.refreshCurrentImageDataFromAll(id);
   }
 
 }

@@ -2,10 +2,10 @@
   <md-card>
     <div class="related-image-wapper">
         <md-grid-list cols="3" rowHeight="2:1">
-            <md-grid-tile *ngFor="let image of relatedImages">
-              <img [lazyLoad]="getThumbnail(image.id, image.ext)" [errorImage]="getImage(image.id, image.ext)" alt="{{image.id}}">
-            </md-grid-tile>
-          </md-grid-list>
+          <md-grid-tile *ngFor="let image of relatedImages">
+            <img (click)="onClickImage(image.id)" [lazyLoad]="getThumbnail(image.id, image.ext)" [errorImage]="getImage(image.id, image.ext)" alt="{{image.id}}">
+          </md-grid-tile>
+        </md-grid-list>
     </div>
   </md-card>
 </div>
