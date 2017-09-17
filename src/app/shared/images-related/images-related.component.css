@@ -12,3 +12,7 @@ md-card {
   width: 80%;
   margin: auto;
 }
+
+img {
+  cursor: pointer;
+}
