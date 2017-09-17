@@ -5,6 +5,7 @@ import { Image } from './../../model/image';
 import { TiqavApiService } from './../../services/tiqav-api.service';
 import { ImagesInfoComponent } from './../images-info/images-info.component';
 import { ImagesRelatedComponent } from './../images-related/images-related.component';
+import { TagsComponent } from './../tags/tags.component';
 
 @Component({
   selector: 'app-images-dialog',
@@ -13,6 +14,7 @@ import { ImagesRelatedComponent } from './../images-related/images-related.compo
 })
 export class ImagesDialogComponent implements OnInit {
   image: Image;
+  tags: string[] = [];
   images: Image[];
 
   constructor(
@@ -24,6 +26,15 @@ export class ImagesDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getTags();
+  }
+
+  getTags() {
+    this.tiqavApiService.getTag(this.image.id)
+    .subscribe(
+      data => this.tags = data,
+      err => console.log(err)
+    );
   }
 
   getCurrentImageData(id: string): Image {
@@ -49,6 +60,7 @@ export class ImagesDialogComponent implements OnInit {
   onChangeRelatedImage(id: string) {
     console.log(id);
     this.refreshCurrentImageDataFromAll(id);
+    this.getTags();
   }
 
 }

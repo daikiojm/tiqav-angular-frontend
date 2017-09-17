@@ -2,6 +2,7 @@
   <div class="main-image-wapper">
     <div class="main-image" [ngStyle]="{'background-image': 'url(' + getImage(image.id, image.ext) + ')'}"></div>
   </div>
-  <app-images-info [image]="image"></app-images-info>
+  <app-tags [tags]="tags"></app-tags>
+  <app-images-info [image]="image" [tags]="tags"></app-images-info>
   <app-images-related [image]="image" (idChange)="onChangeRelatedImage($event)"></app-images-related>
 </div>

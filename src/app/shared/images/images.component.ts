@@ -32,7 +32,7 @@ export class ImagesComponent implements OnInit {
   onOpenDialog(id: string) {
     const dialogRef = this.dialog.open(ImagesDialogComponent, {
       data: { currentId: id, images: this.images },
-      height: '80%',
+      height: '90%',
       width: '80%'
     });
   }

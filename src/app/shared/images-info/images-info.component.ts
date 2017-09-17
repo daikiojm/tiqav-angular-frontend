@@ -10,19 +10,14 @@ import { environment } from './../../../environments/environment.prod';
   styleUrls: ['./images-info.component.css']
 })
 export class ImagesInfoComponent implements OnInit {
-  private tags: string[] = [];
 
   @Input() image: Image;
+  @Input() tags: string[];
   constructor(
     private tiqavApiService: TiqavApiService
   ) { }
 
   ngOnInit() {
-    this.tiqavApiService.getTag(this.image.id)
-    .subscribe(
-      data => this.tags = data,
-      err => console.log(err)
-    );
   }
 
   getNakedImageUrl(): string {

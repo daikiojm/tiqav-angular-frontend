@@ -22,6 +22,7 @@ import { SearchFormComponent } from './shared/search-form/search-form.component'
 import { ImagesDialogComponent } from './shared/images-dialog/images-dialog.component';
 import { ImagesInfoComponent } from './shared/images-info/images-info.component';
 import { ImagesRelatedComponent } from './shared/images-related/images-related.component';
+import { TagsComponent } from './shared/tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ImagesRelatedComponent } from './shared/images-related/images-related.c
     SearchFormComponent,
     ImagesDialogComponent,
     ImagesInfoComponent,
-    ImagesRelatedComponent
+    ImagesRelatedComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,
