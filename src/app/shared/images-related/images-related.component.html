@@ -1,3 +1,8 @@
 <div class="container">
-  <md-card>Simple card</md-card>
+  <md-card>
+    <div class="related-image-wapper" *ngFor="let image of relatedImages">
+      <p>{{image.id}}</p>
+      <div class="related-image" [ngStyle]="{'background-image': 'url(' + getThumbnail(image.id, image.ext) + ')'}"></div>
+    </div>
+  </md-card>
 </div>
