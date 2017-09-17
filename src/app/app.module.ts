@@ -18,6 +18,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { TiqavApiService } from './services/tiqav-api.service';
 import { ImagesComponent } from './shared/images/images.component';
 import { SearchFormComponent } from './shared/search-form/search-form.component';
+import { ImagesDialogComponent } from './shared/images-dialog/images-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SearchFormComponent } from './shared/search-form/search-form.component'
     HeaderComponent,
     FooterComponent,
     ImagesComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    ImagesDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,9 @@ import { SearchFormComponent } from './shared/search-form/search-form.component'
   providers: [
     TiqavApiService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ImagesDialogComponent
+  ]
 })
 export class AppModule { }

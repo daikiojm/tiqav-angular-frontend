@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Directive } from '@angular/core';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 import { Image } from './../../model/image';
 import { TiqavApiService } from './../../services/tiqav-api.service';
+import { ImagesDialogComponent } from './../images-dialog/images-dialog.component';
 
 @Component({
   selector: 'app-images',
@@ -12,6 +14,7 @@ export class ImagesComponent implements OnInit {
 
   @Input() images: Image[];
   constructor(
+    private dialog: MdDialog,
     private tiqavApiService: TiqavApiService
   ) { }
 
@@ -26,4 +29,11 @@ export class ImagesComponent implements OnInit {
     return this.tiqavApiService.getImageUrl(id, ext);
   }
 
+  onOpenDialog(id: string) {
+    const dialogRef = this.dialog.open(ImagesDialogComponent, {
+      data: { currentId: id, images: this.images },
+      height: '80%',
+      width: '80%'
+    });
+  }
 }
