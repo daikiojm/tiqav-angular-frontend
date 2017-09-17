@@ -1,9 +1,14 @@
+.wapper {
+  min-height: 100%;
+}
+
 .main-area-container {
   width: 100%;
+  min-height: calc(100vh - 80px);
 }
 
 app-footer {
   width: 100%;
-  position: fixed;
+  position: relative;
   bottom: 0;
 }

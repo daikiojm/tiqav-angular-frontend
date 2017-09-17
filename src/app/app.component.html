@@ -1,14 +1,17 @@
-<app-header></app-header>
-<div class="main-area-container">
-<nav md-tab-nav-bar>
-  <a md-tab-link fxFlex
-      *ngFor="let routeLink of routeLinks; let i = index"
+<div class="wapper">
+  <app-header></app-header>
+  <div class="main-area-container">
+    <nav md-tab-nav-bar>
+    <a md-tab-link fxFlex
+        *ngFor="let routeLink of routeLinks; let i = index"
         [routerLink]="routeLink.link"
         [active]="activeLinkIndex === i"
         (click)="activeLinkIndex = i">
-        {{routeLink.label}}
-    </a>
-</nav>
-<router-outlet></router-outlet>
+            {{routeLink.label}}
+        </a>
+    </nav>
+  <router-outlet></router-outlet>
+  </div>
+  <!-- <div class="push"></div> -->
+  <app-footer></app-footer>
 </div>
-<!-- <app-footer></app-footer> -->
