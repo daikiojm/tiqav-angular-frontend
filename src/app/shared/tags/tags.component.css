@@ -17,3 +17,7 @@ md-chip-list {
   display: block;
   margin: auto;
 }
+
+.tag-chip {
+  cursor: pointer !important;
+}

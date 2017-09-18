@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router, Params } from '@angular/router';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'app-tags',
@@ -8,9 +10,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TagsComponent implements OnInit {
 
   @Input() tags: string[];
-  constructor() { }
+  constructor(
+    private router: Router,
+    private dialog: MdDialog,
+  ) { }
 
   ngOnInit() {
   }
 
+  onClickTag(tag: string) {
+    this.dialog.closeAll();
+    const params = { word: tag };
+    this.router.navigate(['/search'], { queryParams: params });
+  }
 }
