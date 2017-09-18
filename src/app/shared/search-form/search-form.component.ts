@@ -31,6 +31,7 @@ export class SearchFormComponent implements OnInit {
 
   ngOnInit() {
     this.searchForm.valueChanges
+    .debounceTime(500)
     .subscribe(
       data => {
         console.log(data);
@@ -41,8 +42,7 @@ export class SearchFormComponent implements OnInit {
   }
 
   getWords(word: string) {
-    // TODO: 空文字列(検索の必要なし)の判定をしっかりする
-    if (word !== '') {
+    if (word !== '' && !/^[\s　]/.test(word)) {
       this.tiqavApiService.getTags(word)
       .subscribe(
         data => {
