@@ -1,0 +1,19 @@
+.container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+md-card {
+  height: 100%;
+  padding: 10px;
+}
+
+.tags-wapper {
+  width: 80%;
+  margin: auto;
+}
+
+md-chip-list {
+  display: block;
+  margin: auto;
+}
