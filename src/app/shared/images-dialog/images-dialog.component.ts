@@ -63,4 +63,25 @@ export class ImagesDialogComponent implements OnInit {
     this.getTags();
   }
 
+  getCurrentIndex(): number {
+    return this.images.indexOf(this.image);
+  }
+
+  onClickNext() {
+    const currentIndex = this.getCurrentIndex();
+    this.image = this.images[currentIndex + 1];
+  }
+
+  onClickPrevious() {
+    const currentIndex = this.getCurrentIndex();
+    this.image = this.images[currentIndex - 1];
+  }
+
+  isEnabledNext(): boolean {
+    return this.images.length > this.getCurrentIndex() ? true : false;
+  }
+
+  isEnabledPrevious(): boolean {
+    return true;
+  }
 }

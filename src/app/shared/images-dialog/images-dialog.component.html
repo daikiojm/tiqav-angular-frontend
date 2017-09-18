@@ -5,4 +5,12 @@
   <app-tags [tags]="tags"></app-tags>
   <app-images-info [image]="image" [tags]="tags"></app-images-info>
   <app-images-related [image]="image" (idChange)="onChangeRelatedImage($event)"></app-images-related>
+
+  <button md-fab class="chevron chevron-left" (click)="onClickPrevious()">
+    <md-icon class="" aria-label="">chevron_left</md-icon>
+  </button>
+    
+  <button md-fab class="chevron chevron-right" (click)="onClickNext()">
+    <md-icon class="" aria-label="">chevron_right</md-icon>
+  </button>
 </div>
