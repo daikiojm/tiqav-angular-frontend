@@ -21,6 +21,7 @@ export class SearchFormComponent implements OnInit {
     private router: Router,
     private tiqavApiService: TiqavApiService
   ) {
+    this.filteredWords = null;
     this.words = [];
   }
 
@@ -49,6 +50,7 @@ export class SearchFormComponent implements OnInit {
         },
         err => {
           console.log(err);
+          this.filteredWords = null;
           this.words = [];
         },
         () => {
@@ -56,6 +58,7 @@ export class SearchFormComponent implements OnInit {
         }
       );
     } else {
+      this.filteredWords = null;
       this.words = [];
       this.subscribeFilterdWords();
     }
