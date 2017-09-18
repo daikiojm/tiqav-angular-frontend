@@ -60,6 +60,14 @@ export class TiqavApiService {
       .catch(this.handleError);
   }
 
+  getTags(query: string): Observable<string[]> {
+    const params = this.searchParams();
+    params.set('q', query);
+    return this.jsonp.get(`${environment.endpoint}/tags.json`, { search: params })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   getImageUrl(id: string, ext: string): string {
     return `${environment.imageURL}/${id}.${ext}`;
   }
