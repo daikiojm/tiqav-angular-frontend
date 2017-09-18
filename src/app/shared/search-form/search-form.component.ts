@@ -34,7 +34,6 @@ export class SearchFormComponent implements OnInit {
     .debounceTime(500)
     .subscribe(
       data => {
-        console.log(data);
         this.getWords(data.word);
       },
       err => console.log(err)
@@ -78,6 +77,5 @@ export class SearchFormComponent implements OnInit {
   onSearch() {
     const params = { word: this.searchForm.value.word };
     this.router.navigate(['/search'], { queryParams: params });
-    console.log(this.words);
   }
 }
