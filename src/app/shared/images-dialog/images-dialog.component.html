@@ -6,11 +6,11 @@
   <app-images-info [image]="image" [tags]="tags"></app-images-info>
   <app-images-related [image]="image" (idChange)="onChangeRelatedImage($event)"></app-images-related>
 
-  <button md-fab class="chevron chevron-left" (click)="onClickPrevious()">
+  <button md-fab class="chevron chevron-left" (click)="onClickPrevious()" *ngIf="isEnabledPrevious()">
     <md-icon class="" aria-label="">chevron_left</md-icon>
   </button>
     
-  <button md-fab class="chevron chevron-right" (click)="onClickNext()">
+  <button md-fab class="chevron chevron-right" (click)="onClickNext()" *ngIf="isEnabledNext()">
     <md-icon class="" aria-label="">chevron_right</md-icon>
   </button>
 </div>

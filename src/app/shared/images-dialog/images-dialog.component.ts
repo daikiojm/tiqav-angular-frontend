@@ -78,10 +78,10 @@ export class ImagesDialogComponent implements OnInit {
   }
 
   isEnabledNext(): boolean {
-    return this.images.length > this.getCurrentIndex() ? true : false;
+    return this.images.length - 1 > this.getCurrentIndex() ? true : false;
   }
 
   isEnabledPrevious(): boolean {
-    return true;
+    return this.getCurrentIndex() !== 0 ? true : false;
   }
 }
