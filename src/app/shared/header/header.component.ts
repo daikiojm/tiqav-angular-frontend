@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { SearchFormComponent } from './../search-form/search-form.component';
 
@@ -8,10 +9,20 @@ import { SearchFormComponent } from './../search-form/search-form.component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  searchWord: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute
+  ) {
+    this.searchWord = '';
   }
 
+  ngOnInit() {
+    this.route.queryParams.subscribe(
+      (params: any) => {
+        console.log(params);
+        this.searchWord = params['word'] || '';
+      }
+    );
+  }
 }
