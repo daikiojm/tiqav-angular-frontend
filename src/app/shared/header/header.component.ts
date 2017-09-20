@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(
       (params: any) => {
-        console.log(params);
         this.searchWord = params['word'] || '';
       }
     );

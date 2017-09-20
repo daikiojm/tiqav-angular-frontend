@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +12,7 @@ import { TiqavApiService } from './../../services/tiqav-api.service';
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.css']
 })
-export class SearchFormComponent implements OnInit {
+export class SearchFormComponent implements OnInit, OnChanges {
   filteredWords: Observable<string[]>;
   words: string[];
   searchForm: FormGroup;
@@ -29,6 +29,10 @@ export class SearchFormComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.buildSearchForm();
     this.searchForm.valueChanges
     .debounceTime(500)
     .subscribe(
@@ -41,7 +45,7 @@ export class SearchFormComponent implements OnInit {
 
   buildSearchForm() {
     this.searchForm = this.formBuilder.group({
-      word: new FormControl(this.reactiveSearchWord, [])
+      word: new FormControl(this.reactiveSearchWord || '', [])
     });
   }
 
