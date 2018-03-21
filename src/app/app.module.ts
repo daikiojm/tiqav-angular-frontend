@@ -34,7 +34,7 @@ import {
   MatTooltipModule
 } from '@angular/material';
 import 'hammerjs';
-import { JsonpModule } from '@angular/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { ClipboardModule } from 'ngx-clipboard';
@@ -108,7 +108,8 @@ const usedMaterialModules = [
     AppRoutingModule,
     BrowserAnimationsModule,
     ...usedMaterialModules,
-    JsonpModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
     FlexLayoutModule,
     LazyLoadImageModule,
     ClipboardModule

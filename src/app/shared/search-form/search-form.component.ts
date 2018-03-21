@@ -62,11 +62,10 @@ export class SearchFormComponent implements OnChanges {
   }
 
   subscribeFilterdWords() {
-    this.filteredWords = this.searchForm.valueChanges
-      .pipe(
-        startWith(null),
-        map(val => (val ? this.filter(this.words, val.word) : this.words.slice()))
-      );
+    this.filteredWords = this.searchForm.valueChanges.pipe(
+      startWith(null),
+      map(val => (val ? this.filter(this.words, val.word) : this.words.slice()))
+    );
   }
 
   filter(words: string[], val: string): string[] {
