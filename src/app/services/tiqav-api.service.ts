@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Headers, Jsonp, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/catch';
-import { environment } from './../../environments/environment.prod';
+import { catchError, map, mergeMap } from 'rxjs/operators';
+import { environment } from './../../environments/environment';
 import { Image } from './../model/image';
 
 @Injectable()
@@ -16,32 +14,40 @@ export class TiqavApiService {
     params.set('q', query);
     return this.jsonp
       .get(`${environment.endpoint}/search.json`, { search: params })
-      .map(this.extractData)
-      .catch(this.handleError);
+      .pipe(
+        map(this.extractData),
+        catchError(this.handleError)
+      );
   }
 
   getNewest(): Observable<Image[]> {
     const params = this.searchParams();
     return this.jsonp
       .get(`${environment.endpoint}/search/newest.json`, { search: params })
-      .map(this.extractData)
-      .catch(this.handleError);
+      .pipe(
+        map(this.extractData),
+        catchError(this.handleError)
+      );
   }
 
   getRandom(): Observable<Image[]> {
     const params = this.searchParams();
     return this.jsonp
       .get(`${environment.endpoint}/search/random.json`, { search: params })
-      .map(this.extractData)
-      .catch(this.handleError);
+      .pipe(
+        map(this.extractData),
+        catchError(this.handleError)
+      );
   }
 
   getImage(id: string): Observable<Image> {
     const params = this.searchParams();
     return this.jsonp
       .get(`${environment.endpoint}/images/${id}.json`, { search: params })
-      .map(this.extractData)
-      .catch(this.handleError);
+      .pipe(
+        map(this.extractData),
+        catchError(this.handleError)
+      );
   }
 
   postImage(url: string, serifu: string, tags: string): Observable<string> {
@@ -51,16 +57,20 @@ export class TiqavApiService {
     params.set('tags', tags);
     return this.jsonp
       .post(`${environment.endpoint}/images.json`, { params: params })
-      .map(this.extractData)
-      .catch(this.handleError);
+      .pipe(
+        map(this.extractData),
+        catchError(this.handleError)
+      );
   }
 
   getTag(id: string): Observable<string[]> {
     const params = this.searchParams();
     return this.jsonp
       .get(`${environment.endpoint}/images/${id}/tags.json`, { search: params })
-      .map(this.extractData)
-      .catch(this.handleError);
+      .pipe(
+        map(this.extractData),
+        catchError(this.handleError)
+      );
   }
 
   getTags(query: string): Observable<string[]> {
@@ -68,8 +78,10 @@ export class TiqavApiService {
     params.set('q', query);
     return this.jsonp
       .get(`${environment.endpoint}/tags.json`, { search: params })
-      .map(this.extractData)
-      .catch(this.handleError);
+      .pipe(
+        map(this.extractData),
+        catchError(this.handleError)
+      );
   }
 
   getImageUrl(id: string, ext: string): string {
