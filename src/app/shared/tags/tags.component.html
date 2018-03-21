@@ -1,10 +1,10 @@
 <div class="container">
-  <md-card>
+  <mat-card>
     <div class="tags-wapper">
-      <md-chip-list>
-          <md-chip color="primary" *ngIf="tags.length === 0">この画像にはタグがありません。</md-chip>
-          <md-chip class="tag-chip" (click)="onClickTag(tag)" color="primary" *ngFor="let tag of tags">#{{tag}}</md-chip>
-        </md-chip-list>
+      <mat-chip-list>
+        <mat-chip color="primary" *ngIf="tags.length === 0">この画像にはタグがありません。</mat-chip>
+        <mat-chip class="tag-chip" (click)="onClickTag(tag)" color="primary" *ngFor="let tag of tags">#{{tag}}</mat-chip>
+      </mat-chip-list>
     </div>
-  </md-card>
+  </mat-card>
 </div>

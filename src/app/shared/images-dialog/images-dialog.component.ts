@@ -1,23 +1,23 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { MD_DIALOG_DATA } from "@angular/material";
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
-import { Image } from "./../../model/image";
-import { TiqavApiService } from "./../../services/tiqav-api.service";
-import { ImagesInfoComponent } from "./../images-info/images-info.component";
-import { ImagesRelatedComponent } from "./../images-related/images-related.component";
-import { TagsComponent } from "./../tags/tags.component";
+import { Image } from './../../model/image';
+import { TiqavApiService } from './../../services/tiqav-api.service';
+import { ImagesInfoComponent } from './../images-info/images-info.component';
+import { ImagesRelatedComponent } from './../images-related/images-related.component';
+import { TagsComponent } from './../tags/tags.component';
 
 @Component({
-  selector: "app-images-dialog",
-  templateUrl: "./images-dialog.component.html",
-  styleUrls: ["./images-dialog.component.css"]
+  selector: 'app-images-dialog',
+  templateUrl: './images-dialog.component.html',
+  styleUrls: ['./images-dialog.component.css']
 })
 export class ImagesDialogComponent implements OnInit {
   image: Image;
   tags: string[] = [];
   images: Image[];
 
-  constructor(@Inject(MD_DIALOG_DATA) public data: any, private tiqavApiService: TiqavApiService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private tiqavApiService: TiqavApiService) {
     this.images = data.images;
     this.image = this.getCurrentImageData(data.currentId);
   }

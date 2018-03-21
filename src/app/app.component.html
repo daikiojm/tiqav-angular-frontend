@@ -1,8 +1,8 @@
 <div class="wapper">
   <app-header></app-header>
   <div class="main-area-container">
-    <nav md-tab-nav-bar>
-    <a md-tab-link fxFlex
+    <nav mat-tab-nav-bar>
+    <a mat-tab-link fxFlex
         *ngFor="let routeLink of routeLinks; let i = index"
         [routerLink]="routeLink.link"
         [active]="activeLinkIndex === i"

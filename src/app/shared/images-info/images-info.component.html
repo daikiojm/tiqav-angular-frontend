@@ -1,27 +1,27 @@
 <div class="container">
-  <md-card>
+  <mat-card>
     <form class="image-info-form">
       <p>
-        <a md-raised-button color="primary"  [href]="getNakedImageUrl()" download="">ダウンロード</a>
+        <a mat-raised-button color="primary"  [href]="getNakedImageUrl()" download="">ダウンロード</a>
       </p>
       <p>
-        <md-form-field class="image-info-form-image-url">
-          <input mdInput #imageUrl placeholder="画像URL" [value]="getNakedImageUrl()" readonly="true">
-        </md-form-field>
-        <button md-raised-button color="primary" [ngxClipboard]="imageUrl">コピー</button>
+        <mat-form-field class="image-info-form-image-url">
+          <input matInput #imageUrl placeholder="画像URL" [value]="getNakedImageUrl()" readonly="true">
+        </mat-form-field>
+        <button mat-raised-button color="primary" [ngxClipboard]="imageUrl">コピー</button>
       </p>
       <p>
-        <md-form-field class="image-info-form-full-width">
-          <input mdInput #imageLink placeholder="リンク" [value]="geImageLink()" readonly="true">
-        </md-form-field>
-        <button md-raised-button color="primary" [ngxClipboard]="imageLink">コピー</button>
+        <mat-form-field class="image-info-form-full-width">
+          <input matInput #imageLink placeholder="リンク" [value]="geImageLink()" readonly="true">
+        </mat-form-field>
+        <button mat-raised-button color="primary" [ngxClipboard]="imageLink">コピー</button>
       </p>
       <p>
-        <md-form-field class="image-info-form-full-width">
-          <input mdInput #markDown placeholder="Markdown" [value]="getMarkdown()" readonly="true">
-        </md-form-field>
-        <button md-raised-button color="primary" [ngxClipboard]="markDown">コピー</button>
+        <mat-form-field class="image-info-form-full-width">
+          <input matInput #markDown placeholder="Markdown" [value]="getMarkdown()" readonly="true">
+        </mat-form-field>
+        <button mat-raised-button color="primary" [ngxClipboard]="markDown">コピー</button>
       </p>
     </form>
-  </md-card>
+  </mat-card>
 </div>

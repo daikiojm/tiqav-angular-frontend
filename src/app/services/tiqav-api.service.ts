@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { Headers, Jsonp, Response, URLSearchParams } from "@angular/http";
-import { Observable } from "rxjs/Rx";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/mergeMap";
-import "rxjs/add/operator/catch";
-import { environment } from "./../../environments/environment.prod";
-import { Image } from "./../model/image";
+import { Injectable } from '@angular/core';
+import { Headers, Jsonp, Response, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/catch';
+import { environment } from './../../environments/environment.prod';
+import { Image } from './../model/image';
 
 @Injectable()
 export class TiqavApiService {
@@ -13,7 +13,7 @@ export class TiqavApiService {
 
   getSearch(query: string): Observable<Image[]> {
     const params = this.searchParams();
-    params.set("q", query);
+    params.set('q', query);
     return this.jsonp
       .get(`${environment.endpoint}/search.json`, { search: params })
       .map(this.extractData)
@@ -46,9 +46,9 @@ export class TiqavApiService {
 
   postImage(url: string, serifu: string, tags: string): Observable<string> {
     const params = this.searchParams();
-    params.set("url", url);
-    params.set("serifu", serifu);
-    params.set("tags", tags);
+    params.set('url', url);
+    params.set('serifu', serifu);
+    params.set('tags', tags);
     return this.jsonp
       .post(`${environment.endpoint}/images.json`, { params: params })
       .map(this.extractData)
@@ -65,7 +65,7 @@ export class TiqavApiService {
 
   getTags(query: string): Observable<string[]> {
     const params = this.searchParams();
-    params.set("q", query);
+    params.set('q', query);
     return this.jsonp
       .get(`${environment.endpoint}/tags.json`, { search: params })
       .map(this.extractData)
@@ -82,7 +82,7 @@ export class TiqavApiService {
 
   private searchParams(): URLSearchParams {
     const _params = new URLSearchParams();
-    _params.set("callback", "JSONP_CALLBACK");
+    _params.set('callback', 'JSONP_CALLBACK');
     return _params;
   }
 

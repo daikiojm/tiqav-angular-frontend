@@ -1,8 +1,8 @@
-import { TestBed, inject } from "@angular/core/testing";
+import { TestBed, inject } from '@angular/core/testing';
 
-import { TiqavApiService } from "./tiqav-api.service";
+import { TiqavApiService } from './tiqav-api.service';
 
-describe("TiqavApiService", () => {
+describe('TiqavApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [TiqavApiService]
@@ -10,7 +10,7 @@ describe("TiqavApiService", () => {
   });
 
   it(
-    "should be created",
+    'should be created',
     inject([TiqavApiService], (service: TiqavApiService) => {
       expect(service).toBeTruthy();
     })

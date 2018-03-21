@@ -1,16 +1,16 @@
-import { Component, OnInit, OnChanges, Input } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { Router, Params } from "@angular/router";
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/startWith";
-import "rxjs/add/operator/map";
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router, Params } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
 
-import { TiqavApiService } from "./../../services/tiqav-api.service";
+import { TiqavApiService } from './../../services/tiqav-api.service';
 
 @Component({
-  selector: "app-search-form",
-  templateUrl: "./search-form.component.html",
-  styleUrls: ["./search-form.component.css"]
+  selector: 'app-search-form',
+  templateUrl: './search-form.component.html',
+  styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnInit, OnChanges {
   filteredWords: Observable<string[]>;
@@ -38,12 +38,12 @@ export class SearchFormComponent implements OnInit, OnChanges {
 
   buildSearchForm() {
     this.searchForm = this.formBuilder.group({
-      word: new FormControl(this.reactiveSearchWord || "", [])
+      word: new FormControl(this.reactiveSearchWord || '', [])
     });
   }
 
   getWords(word: string) {
-    if (word !== "" && !/^[\s　]/.test(word)) {
+    if (word !== '' && !/^[\s　]/.test(word)) {
       this.tiqavApiService.getTags(word).subscribe(
         data => {
           this.words = data;
@@ -74,6 +74,6 @@ export class SearchFormComponent implements OnInit, OnChanges {
 
   onSearch() {
     const params = { word: this.searchForm.value.word };
-    this.router.navigate(["/search"], { queryParams: params });
+    this.router.navigate(['/search'], { queryParams: params });
   }
 }

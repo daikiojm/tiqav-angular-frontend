@@ -1,8 +1,8 @@
 <form [formGroup]="searchForm" (keyup.enter)="onSearch()">
-  <input type="search" placeholder="検索" [formControl]="searchForm.controls.word" [mdAutocomplete]="suggest">
-  <md-autocomplete #suggest="mdAutocomplete">
-    <md-option *ngFor="let word of filteredWords | async" [value]="word">
-      {{word}}
-    </md-option>
-  </md-autocomplete>
+  <input type="search" placeholder="検索" formControlName="word" [matAutocomplete]="suggest">
+  <mat-autocomplete #suggest="matAutocomplete">
+    <mat-option *ngFor="let word of filteredWords | async" [value]="word">
+      {{ word }}
+    </mat-option>
+  </mat-autocomplete>
 </form>

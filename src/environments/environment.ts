@@ -6,9 +6,9 @@
 export const environment = {
   production: false,
   // tiqav
-  tiqav: "http://tiqav.com",
+  tiqav: 'http://tiqav.com',
   // API
-  endpoint: "http://api.tiqav.com",
+  endpoint: 'http://api.tiqav.com',
   // Original,Thumbnail
-  imageURL: "http://img.tiqav.com"
+  imageURL: 'http://img.tiqav.com'
 };

@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input } from '@angular/core';
 
-import { Image } from "./../../model/image";
-import { TiqavApiService } from "./../../services/tiqav-api.service";
-import { environment } from "./../../../environments/environment.prod";
+import { Image } from './../../model/image';
+import { TiqavApiService } from './../../services/tiqav-api.service';
+import { environment } from './../../../environments/environment.prod';
 
 @Component({
-  selector: "app-images-info",
-  templateUrl: "./images-info.component.html",
-  styleUrls: ["./images-info.component.css"]
+  selector: 'app-images-info',
+  templateUrl: './images-info.component.html',
+  styleUrls: ['./images-info.component.css']
 })
 export class ImagesInfoComponent implements OnInit {
   @Input() image: Image;
@@ -31,7 +31,7 @@ export class ImagesInfoComponent implements OnInit {
   // リンク先は本家tiqav
   getMarkdown(): string {
     const thumbnailUrl = this.tiqavApiService.getThumbnailUrl(this.image.id, this.image.ext);
-    const _tags = this.tags.length !== 0 ? this.tags.join(" ") : "";
+    const _tags = this.tags.length !== 0 ? this.tags.join(' ') : '';
     // [![おまたせ ごめんなさい](http://tiqav.com/1ZJ.th.jpg)](http://tiqav.com/1ZJ)
     const _markdown = `[![${_tags}](${thumbnailUrl})](${environment.tiqav}/${this.image.id})`;
     return _markdown;
