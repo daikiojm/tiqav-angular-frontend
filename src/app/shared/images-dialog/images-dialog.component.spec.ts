@@ -1,17 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ImagesDialogComponent } from './images-dialog.component';
+import { ImagesDialogComponent } from "./images-dialog.component";
 
-describe('ImagesDialogComponent', () => {
+describe("ImagesDialogComponent", () => {
   let component: ImagesDialogComponent;
   let fixture: ComponentFixture<ImagesDialogComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ImagesDialogComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [ImagesDialogComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ImagesDialogComponent);
@@ -19,7 +20,7 @@ describe('ImagesDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(component).toBeTruthy();
   });
 });

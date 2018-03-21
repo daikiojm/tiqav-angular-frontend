@@ -1,25 +1,20 @@
-import { Component, OnInit, Input, Directive } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { Component, OnInit, Input, Directive } from "@angular/core";
+import { MdDialog, MdDialogRef } from "@angular/material";
 
-import { Image } from './../../model/image';
-import { TiqavApiService } from './../../services/tiqav-api.service';
-import { ImagesDialogComponent } from './../images-dialog/images-dialog.component';
+import { Image } from "./../../model/image";
+import { TiqavApiService } from "./../../services/tiqav-api.service";
+import { ImagesDialogComponent } from "./../images-dialog/images-dialog.component";
 
 @Component({
-  selector: 'app-images',
-  templateUrl: './images.component.html',
-  styleUrls: ['./images.component.css']
+  selector: "app-images",
+  templateUrl: "./images.component.html",
+  styleUrls: ["./images.component.css"]
 })
 export class ImagesComponent implements OnInit {
-
   @Input() images: Image[];
-  constructor(
-    private dialog: MdDialog,
-    private tiqavApiService: TiqavApiService
-  ) { }
+  constructor(private dialog: MdDialog, private tiqavApiService: TiqavApiService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getThumbnail(id: string, ext: string): string {
     return this.tiqavApiService.getThumbnailUrl(id, ext);
@@ -32,8 +27,8 @@ export class ImagesComponent implements OnInit {
   onOpenDialog(id: string) {
     const dialogRef = this.dialog.open(ImagesDialogComponent, {
       data: { currentId: id, images: this.images },
-      height: '90%',
-      width: '80%'
+      height: "90%",
+      width: "80%"
     });
   }
 }

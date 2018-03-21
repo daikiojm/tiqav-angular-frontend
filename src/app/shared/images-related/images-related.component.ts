@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
-import { Image } from './../../model/image';
-import { TiqavApiService } from './../../services/tiqav-api.service';
+import { Image } from "./../../model/image";
+import { TiqavApiService } from "./../../services/tiqav-api.service";
 
 @Component({
-  selector: 'app-images-related',
-  templateUrl: './images-related.component.html',
-  styleUrls: ['./images-related.component.css']
+  selector: "app-images-related",
+  templateUrl: "./images-related.component.html",
+  styleUrls: ["./images-related.component.css"]
 })
 export class ImagesRelatedComponent implements OnInit {
   results: Image[] = [];
@@ -14,9 +14,7 @@ export class ImagesRelatedComponent implements OnInit {
 
   @Input() image: Image;
   @Output() idChange = new EventEmitter<string>();
-  constructor(
-    private tiqavApiService: TiqavApiService
-  ) { }
+  constructor(private tiqavApiService: TiqavApiService) {}
 
   ngOnInit() {
     // Relatedとしてるけど実際はランダムに取ってくる...
@@ -24,9 +22,8 @@ export class ImagesRelatedComponent implements OnInit {
   }
 
   getRandomImageData() {
-    this.tiqavApiService.getRandom()
-    .subscribe(
-      data => this.results = data,
+    this.tiqavApiService.getRandom().subscribe(
+      data => (this.results = data),
       err => console.log(err),
       () => {
         this.relatedImages = this.getRandomImageDataN(3);
@@ -38,7 +35,7 @@ export class ImagesRelatedComponent implements OnInit {
     const result = [];
     const usedIndex = [];
     const len = this.results.length;
-     while (result.length < n) {
+    while (result.length < n) {
       const currentIndex = Math.floor(Math.random() * len);
       if (usedIndex.indexOf(currentIndex) === -1) {
         result.push(this.results[currentIndex]);
