@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MD_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 import { Image } from './../../model/image';
 import { TiqavApiService } from './../../services/tiqav-api.service';
@@ -18,7 +18,7 @@ export class ImagesDialogComponent implements OnInit {
   images: Image[];
 
   constructor(
-    @Inject(MD_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private tiqavApiService: TiqavApiService
   ) {
     this.images = data.images;

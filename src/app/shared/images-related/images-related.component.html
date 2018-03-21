@@ -1,11 +1,11 @@
 <div class="container">
-  <md-card>
+  <mat-card>
     <div class="related-image-wapper">
-        <md-grid-list cols="3" rowHeight="2:1">
-          <md-grid-tile *ngFor="let image of relatedImages">
+        <mat-grid-list cols="3" rowHeight="2:1">
+          <mat-grid-tile *ngFor="let image of relatedImages">
             <img (click)="onClickImage(image.id)" [lazyLoad]="getThumbnail(image.id, image.ext)" [errorImage]="getImage(image.id, image.ext)" alt="{{image.id}}">
-          </md-grid-tile>
-        </md-grid-list>
+          </mat-grid-tile>
+        </mat-grid-list>
     </div>
-  </md-card>
+  </mat-card>
 </div>

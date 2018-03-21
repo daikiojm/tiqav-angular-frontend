@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Directive } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { Image } from './../../model/image';
 import { TiqavApiService } from './../../services/tiqav-api.service';
@@ -14,7 +14,7 @@ export class ImagesComponent implements OnInit {
 
   @Input() images: Image[];
   constructor(
-    private dialog: MdDialog,
+    private dialog: MatDialog,
     private tiqavApiService: TiqavApiService
   ) { }
 
