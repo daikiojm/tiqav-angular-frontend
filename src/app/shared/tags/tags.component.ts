@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, Params } from '@angular/router';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-tags',
@@ -12,7 +12,7 @@ export class TagsComponent implements OnInit {
   @Input() tags: string[];
   constructor(
     private router: Router,
-    private dialog: MdDialog,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit() {
