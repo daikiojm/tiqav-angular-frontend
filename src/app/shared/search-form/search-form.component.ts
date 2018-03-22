@@ -1,9 +1,8 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/map';
+import { map, startWith, debounceTime } from 'rxjs/operators';
 
 import { TiqavApiService } from './../../services/tiqav-api.service';
 
@@ -12,7 +11,7 @@ import { TiqavApiService } from './../../services/tiqav-api.service';
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.css']
 })
-export class SearchFormComponent implements OnInit, OnChanges {
+export class SearchFormComponent implements OnChanges {
   filteredWords: Observable<string[]>;
   words: string[];
   searchForm: FormGroup;
@@ -24,11 +23,9 @@ export class SearchFormComponent implements OnInit, OnChanges {
     this.buildSearchForm();
   }
 
-  ngOnInit() {}
-
   ngOnChanges() {
     this.buildSearchForm();
-    this.searchForm.valueChanges.debounceTime(500).subscribe(
+    this.searchForm.valueChanges.pipe(debounceTime(500)).subscribe(
       data => {
         this.getWords(data.word);
       },
@@ -65,11 +62,14 @@ export class SearchFormComponent implements OnInit, OnChanges {
   }
 
   subscribeFilterdWords() {
-    this.filteredWords = this.searchForm.valueChanges.startWith(null).map(val => (val ? this.filter(val.word) : this.words.slice()));
+    this.filteredWords = this.searchForm.valueChanges.pipe(
+      startWith(null),
+      map(val => (val ? this.filter(this.words, val.word) : this.words.slice()))
+    );
   }
 
-  filter(val: string): string[] {
-    return this.words.filter(word => word.toLowerCase().indexOf(val.toLowerCase()) === 0);
+  filter(words: string[], val: string): string[] {
+    return words.filter(word => word.toLowerCase().indexOf(val.toLowerCase()) === 0);
   }
 
   onSearch() {
