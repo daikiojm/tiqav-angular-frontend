@@ -3,9 +3,6 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 
 import { Image } from './../../model/image';
 import { TiqavApiService } from './../../services/tiqav-api.service';
-import { ImagesInfoComponent } from './../images-info/images-info.component';
-import { ImagesRelatedComponent } from './../images-related/images-related.component';
-import { TagsComponent } from './../tags/tags.component';
 
 @Component({
   selector: 'app-images-dialog',
@@ -15,7 +12,7 @@ import { TagsComponent } from './../tags/tags.component';
 export class ImagesDialogComponent implements OnInit {
   image: Image;
   tags: string[] = [];
-  images: Image[];
+  images: Image[] = [];
 
   /* tslint:disable no-any */
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private tiqavApiService: TiqavApiService) {

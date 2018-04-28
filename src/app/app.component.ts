@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 interface RouterLink {
   label: string;
@@ -12,12 +12,11 @@ interface RouterLink {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
   routeLinks: Array<RouterLink>;
   activeLinkIndex = 0;
   private currentRoute = '';
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router) {
     this.routeLinks = [{ label: 'Search', link: 'search' }, { label: 'Newest', link: 'newest' }, { label: 'Random', link: 'random' }];
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {

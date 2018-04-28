@@ -32,8 +32,8 @@ export class ImagesRelatedComponent implements OnInit {
   }
 
   getRandomImageDataN(n: number): Image[] {
-    const result = [];
-    const usedIndex = [];
+    const result: Image[] = [];
+    const usedIndex: number[] = [];
     const len = this.results.length;
     while (result.length < n) {
       const currentIndex = Math.floor(Math.random() * len);
