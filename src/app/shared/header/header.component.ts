@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    /* tslint:disable no-any */
     this.route.queryParams.subscribe((params: any) => {
       this.searchWord = params['word'] || '';
     });

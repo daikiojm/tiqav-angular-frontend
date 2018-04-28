@@ -17,6 +17,7 @@ export class ImagesDialogComponent implements OnInit {
   tags: string[] = [];
   images: Image[];
 
+  /* tslint:disable no-any */
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private tiqavApiService: TiqavApiService) {
     this.images = data.images;
     this.image = this.getCurrentImageData(data.currentId);

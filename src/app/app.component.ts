@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
+interface RouterLink {
+  label: string;
+  link: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +13,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'app';
-  routeLinks: any[];
+  routeLinks: Array<RouterLink>;
   activeLinkIndex = 0;
   private currentRoute = '';
 
