@@ -68,6 +68,7 @@ export class TiqavApiService {
     return this.http.jsonp<T>(`${url}?${params}`, callback);
   }
 
+  /* tslint:disable no-any */
   private handleError(error: Response | any) {
     console.log(error.message || error);
     return Observable.throw(error.message || error);

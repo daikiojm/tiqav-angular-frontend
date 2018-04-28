@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Directive } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { Component, Input, Directive } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 import { Image } from './../../model/image';
 import { TiqavApiService } from './../../services/tiqav-api.service';
@@ -10,11 +10,9 @@ import { ImagesDialogComponent } from './../images-dialog/images-dialog.componen
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.css']
 })
-export class ImagesComponent implements OnInit {
+export class ImagesComponent {
   @Input() images: Image[];
   constructor(private dialog: MatDialog, private tiqavApiService: TiqavApiService) {}
-
-  ngOnInit() {}
 
   getThumbnail(id: string, ext: string): string {
     return this.tiqavApiService.getThumbnailUrl(id, ext);
@@ -25,7 +23,7 @@ export class ImagesComponent implements OnInit {
   }
 
   onOpenDialog(id: string) {
-    const dialogRef = this.dialog.open(ImagesDialogComponent, {
+    this.dialog.open(ImagesDialogComponent, {
       data: { currentId: id, images: this.images },
       height: '90%',
       width: '80%'

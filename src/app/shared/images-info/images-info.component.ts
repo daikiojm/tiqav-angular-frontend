@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Image } from './../../model/image';
 import { TiqavApiService } from './../../services/tiqav-api.service';
@@ -9,12 +9,10 @@ import { environment } from './../../../environments/environment.prod';
   templateUrl: './images-info.component.html',
   styleUrls: ['./images-info.component.css']
 })
-export class ImagesInfoComponent implements OnInit {
+export class ImagesInfoComponent {
   @Input() image: Image;
   @Input() tags: string[];
   constructor(private tiqavApiService: TiqavApiService) {}
-
-  ngOnInit() {}
 
   getNakedImageUrl(): string {
     return this.tiqavApiService.getImageUrl(this.image.id, this.image.ext);

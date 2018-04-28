@@ -1,8 +1,9 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { map, startWith, debounceTime } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+import { map, debounceTime } from 'rxjs/operators';
 
 import { TiqavApiService } from './../../services/tiqav-api.service';
 
@@ -12,14 +13,12 @@ import { TiqavApiService } from './../../services/tiqav-api.service';
   styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnChanges {
-  filteredWords: Observable<string[]>;
-  words: string[];
+  filteredWords: Observable<string[]> = of([]);
+  words: string[] = [];
   searchForm: FormGroup;
 
   @Input() reactiveSearchWord: string;
   constructor(private formBuilder: FormBuilder, private router: Router, private tiqavApiService: TiqavApiService) {
-    this.filteredWords = null;
-    this.words = [];
     this.buildSearchForm();
   }
 
@@ -47,7 +46,7 @@ export class SearchFormComponent implements OnChanges {
         },
         err => {
           console.log(err);
-          this.filteredWords = null;
+          this.filteredWords = of([]);
           this.words = [];
         },
         () => {
@@ -55,17 +54,14 @@ export class SearchFormComponent implements OnChanges {
         }
       );
     } else {
-      this.filteredWords = null;
+      this.filteredWords = of([]);
       this.words = [];
       this.subscribeFilterdWords();
     }
   }
 
   subscribeFilterdWords() {
-    this.filteredWords = this.searchForm.valueChanges.pipe(
-      startWith(null),
-      map(val => (val ? this.filter(this.words, val.word) : this.words.slice()))
-    );
+    this.filteredWords = this.searchForm.valueChanges.pipe(map(val => (val ? this.filter(this.words, val.word) : this.words.slice())));
   }
 
   filter(words: string[], val: string): string[] {
